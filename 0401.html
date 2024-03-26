@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>互動網頁</title>
+    <style>
+        .character {
+            cursor: pointer;
+            width: 200px;
+            height: 200px;
+            /* 在 CSS 中添加你的角色圖片 */
+            transition: transform 0.3s, filter 0.5s;
+        }
+
+        .glow {
+            filter: brightness(150%);
+        }
+    </style>
+</head>
+<body>
+    <img class="character" id="character1" src="character1.jpg" onclick="interact('sound1.mp3', 'character1')">
+    <img class="character" id="character2" src="character2.jpg" onclick="interact('sound2.mp3', 'character2')">
+
+    <script>
+        function interact(soundFile, characterId) {
+            playSound(soundFile);
+            const character = document.getElementById(characterId);
+            character.classList.add('glow');
+            setTimeout(() => character.classList.remove('glow'), 500);
+        }
+
+        function playSound(soundFile) {
+            const audio = new Audio(soundFile);
+            audio.play();
+        }
+    </script>
+</body>
+</html>
