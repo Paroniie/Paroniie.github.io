@@ -26,7 +26,7 @@
         }
 
         .glow {
-            filter: brightness(150%);
+            filter: brightness(300%);
         }
     </style>
 </head>
@@ -52,6 +52,8 @@
             }
             playSound(soundFile);
             const character = document.getElementById(characterId);
+            const newImage = (character.src.includes('character1')) ? 'LAN.png' : 'MOS.png';
+            character.src = newImage; // 切換圖片
             character.classList.add('glow');
             setTimeout(() => character.classList.remove('glow'), 500);
         }
