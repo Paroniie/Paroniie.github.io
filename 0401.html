@@ -3,11 +3,15 @@
 <head>
     <title>愚人節運氣</title>
     <style>
-
+        
+        @import url('https://fonts.googleapis.com/earlyaccess/cwtexyen.css');
+        
         body {
             background-color: black;
         }
-        
+        header {
+            background-color: #b0c7d1;
+        }
         .wrap {
             margin:0 auto;
         }
@@ -33,9 +37,12 @@
 <body>
 
     <div class="wrap">
+        <div class="header">
+            <p>您已經累積了<span id="counter">0</span>好運值</p>
+        </div>
 
-        <div class="flex-container">
-            <img class="character" id="LAN" src="LAN_CU.png" onclick="interact('LAN_S2.mp3', 'LAN_S1.mp3', 'character1')"">
+        <div id="counterArea" class="flex-container" onclick="incrementCounter()">
+            <img class="character" id="LAN" src="LAN_CU.png" onclick="interact('LAN_S2.mp3', 'LAN_S1.mp3', 'character1')">
             <img class="character" id="MOS" src="MOS_CU.png" onclick="interact('MOS_S1.mp3', 'MOS_S2.mp3', 'character2')">
         </div>
 
@@ -63,6 +70,15 @@
             const audio = new Audio(soundFile);
             audio.volume = 0.2; // 设置音量为 0.5（50% 音量）
             audio.play();
+        }
+    </script>
+    
+    <script>
+        let count = 0;
+
+        function incrementCounter() {
+            count++;
+            document.getElementById('counter').innerText = count;
         }
     </script>
 </body>
