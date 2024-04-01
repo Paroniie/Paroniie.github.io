@@ -19,8 +19,6 @@
             margin:0 auto;
         }
         .flex-container {
-            height: 800px;
-            width: 800px;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -78,6 +76,11 @@
             // 随机选择图片文件
             const randomImageIndex = Math.floor(Math.random() * imageFiles.length);
             document.getElementById('counterImage').src = imageFiles[randomImageIndex];
+            
+            // 2秒后恢复原始图片
+            setTimeout(() => {
+                document.getElementById('counterImage').innerHTML = `<img class="counterImage" src="PA_01.jpg">`; // 这里将原始图片路径写死了，你也可以随机选择
+            }, 2000);
         }
     </script>
 </head>
