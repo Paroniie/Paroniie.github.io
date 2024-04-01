@@ -35,28 +35,32 @@
     <div class="wrap">
 
         <div class="flex-container">
-            <img class="character" id="LAN" src="LAN_CU.png" onclick="interact('LAN_S1.mp3','LAN_S2.mp3', 'character1')">
-            <img class="character" id="MOS" src="MOS_CU.png" onclick="interact('MOS_S1.mp3','MOS_S2.mp3', 'character2')">
+            <img class="character" id="LAN" src="LAN_CU.png" onclick="interact('LAN_S1.mp3', 'LAN.png', 'character1', 'LAN_S2.mp3', 'LAN_CU.png', 'character2')">
+            <img class="character" id="MOS" src="MOS_CU.png" onclick="interact('MOS_S1.mp3', 'MOS.png', 'character1', 'MOS_S2.mp3', 'MOS_CU.png', 'character2')">
         </div>
 
     </div>
 
     <script>
-        function interact(soundFile1, soundFile2, characterId) {
+        function interact(soundFile1, newImage1, characterId1, soundFile2, newImage2, characterId2) {
             const randomNumber = Math.random(); // 生成一个 0 到 1 之间的随机数
             let soundFile;
             if (randomNumber < 0.2) {
                 soundFile = soundFile1; // 如果随机数小于 0.2，播放第一个声音
+                newImage = newImage1;
             } else {
                 soundFile = soundFile2; // 如果随机数大于等于 0.2，播放第二个声音
+                newImage = newImage2;
             }
             playSound(soundFile);
-            const character = document.getElementById(characterId);
-            const newImage = (character.src.includes('LAN_CU')) ? 'LAN.png';
-            const newImage = (character.src.includes('MOS_CU')) ? 'MOS.png';
-            character.src = newImage; // 切換圖片
-            character.classList.add('glow');
-            setTimeout(() => character.classList.remove('glow'), 500);
+            character1.src = newImage1; // 切換圖片
+            character2.src = newImage2; // 切換圖片
+            character1.classList.add('glow');
+            character2.classList.add('glow');
+            setTimeout(() => {
+                character1.classList.remove('glow');
+                character2.classList.remove('glow');
+            }, 500);
         }
 
         function playSound(soundFile) {
