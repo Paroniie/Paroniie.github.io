@@ -28,15 +28,13 @@
         .counterImage {
             cursor: pointer;
             height: 600px;
+            width: 600px;
             /* 在 CSS 中添加你的角色圖片 */
             transition: transform 0.3s, filter 0.5s;
+            background-size: cover;
         }
         .counterImage:hover {
             transform: scale(1.5);
-        }
-
-        .glow {
-            filter: darkness(300%);
         }
     </style>
 
@@ -101,7 +99,7 @@
 
         <div id="counterArea" class="flex-container" onclick="incrementCounter()">
 
-           <img id="counterImage" class="counterImage" src="PA_01.png" onclick="playRandomSoundAndChangeImage()">
+           <button id="counterImage" class="counterImage" onclick="playRandomSoundAndChangeImage()"><img src="PA_01.png"></button>
         </div>
 
     </div>
