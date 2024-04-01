@@ -52,7 +52,8 @@
             }
             playSound(soundFile);
             const character = document.getElementById(characterId);
-            const newImage = (character.src.includes('character1')) ? 'LAN.png' : 'MOS.png';
+            const newImage = (character.src.includes('LAN_CU')) ? 'LAN.png';
+            const newImage = (character.src.includes('MOS_CU')) ? 'MOS.png';
             character.src = newImage; // 切換圖片
             character.classList.add('glow');
             setTimeout(() => character.classList.remove('glow'), 500);
