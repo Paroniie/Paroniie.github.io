@@ -3,12 +3,11 @@
 <head>
     <title>愚人節運氣</title>
     <style>
-        
         @import url('https://fonts.googleapis.com/earlyaccess/cwtexyen.css');
-        
+
         body {
             background-image:url(BG.jpg);
-　          background-repeat:no-repeat;
+            background-repeat:no-repeat;
             background-color: black;
         }
         .header {
@@ -34,7 +33,7 @@
         }
     </style>
 
-<script>
+    <script>
         const audioFiles = [
             'PA_S01.mp3',
             'PA_S02.mp3',
@@ -70,7 +69,7 @@
 
             // 随机选择图片文件
             const randomImageIndex = Math.floor(Math.random() * imageFiles.length);
-            document.getElementById('Image').src = imageFiles[randomImageIndex];
+            document.getElementById('image').src = imageFiles[randomImageIndex];
         }
     </script>
 </head>
@@ -81,12 +80,9 @@
         </div>
 
         <div class="flex-container">
-            <img src="PA_01.png" id="Image" class="Image" onclick="playRandomSoundAndChangeImage()">
+            <img src="PA_01.png" id="image" class="Image" onclick="playRandomSoundAndChangeImage()">
         </div>
 
     </div>
-  
-
-    
 </body>
 </html>
