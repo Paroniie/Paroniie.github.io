@@ -76,11 +76,6 @@
             // 随机选择图片文件
             const randomImageIndex = Math.floor(Math.random() * imageFiles.length);
             document.getElementById('counterImage').src = imageFiles[randomImageIndex];
-            
-            // 2秒后恢复原始图片
-            setTimeout(() => {
-                document.getElementById('counterImage').innerHTML = `<img class="counterImage" src="PA_01.png">`; // 这里将原始图片路径写死了，你也可以随机选择
-            }, 2000);
         }
     </script>
 </head>
@@ -90,8 +85,8 @@
             <p font-size="24px"><b>愚人節快樂</b></p>
         </div>
 
-        <div class="flex-container">
-           <button id="counterImage" class="counterImage" onclick="playRandomSoundAndChangeImage()"><img class="counterImage" src="PA_01.png"></button>
+        <div class="flex-container" style="height: 800px; width: 800px;">
+           <button id="counterImage" onclick="playRandomSoundAndChangeImage()"><img class="counterImage" src="PA_01.png"></button>
         </div>
 
     </div>
