@@ -48,7 +48,7 @@
         </div>
 
         <div id="counterArea" class="flex-container" onclick="incrementCounter()">
-            <img class="character" id="LAN" src="LAN_CU.png" onclick="interact('LAN_S2.mp3', 'LAN_S1.mp3', 'character1')">
+            <img class="character" id="LAN" src="LAN_CU.png" onclick="playRandomSound()">
             <img class="character" id="MOS" src="MOS_CU.png" onclick="interact('MOS_S1.mp3', 'MOS_S2.mp3', 'character2')">
         </div>
 
@@ -77,9 +77,19 @@
             audio.volume = 0.2; // 设置音量为 0.5（50% 音量）
             audio.play();
         }
-    </script>
-    
-    <script>
+
+        const audioFiles = [
+            'LAN_S1.mp3',
+            'LAN_S2.mp3',
+            'LAN_S3.mp3' // 添加更多的音频文件路径
+        ];
+
+        function playRandomSound() {
+            const randomIndex = Math.floor(Math.random() * audioFiles.length);
+            const audio = new Audio(audioFiles[randomIndex]);
+            audio.play();
+        }
+
         let count = 0;
 
         function incrementCounter() {
