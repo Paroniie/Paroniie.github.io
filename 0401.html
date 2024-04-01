@@ -32,7 +32,7 @@
             transition: transform 0.3s, filter 0.5s;
         }
         .character-image:hover {
-            transform: scale(1.1);
+            transform: scale(1.5);
         }
 
         .glow {
@@ -88,7 +88,7 @@
             // 重置图像大小，实现点击后放大再缩小的效果
             document.getElementById('counterImage').style.transform = 'scale(1)';
             setTimeout(() => {
-                document.getElementById('counterImage').style.transform = 'scale(1.1)';
+                document.getElementById('counterImage').style.transform = 'scale(2)';
             }, 10);
         }
     </script>
