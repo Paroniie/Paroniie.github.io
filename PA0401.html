@@ -83,28 +83,15 @@
             const randomImageIndex = Math.floor(Math.random() * imageFiles.length);
             document.getElementById('counterImage').src = imageFiles[randomImageIndex];
         }
-
-        let count = 0;
-
-        function incrementCounter() {
-            count++;
-            document.getElementById('counter').innerText = count;
-            // 重置图像大小，实现点击后放大再缩小的效果
-            document.getElementById('counterImage').style.transform = 'scale(1)';
-            setTimeout(() => {
-                document.getElementById('counterImage').style.transform = 'scale(2)';
-            }, 10);
-        }
     </script>
 </head>
 <body>
     <div class="wrap">
         <div class="header">
             <p font-size="24px"><b>愚人節快樂</b></p>
-            <p>您已經累積了<span id="counter">0</span>好運值</p>
         </div>
 
-        <div id="counterArea" class="flex-container" onclick="incrementCounter()">
+        <div id="counterArea" class="flex-container">
 
            <button id="counterImage" class="counterImage" onclick="playRandomSoundAndChangeImage()"><img class="counterImage" src="PA_01.png"></button>
         </div>
