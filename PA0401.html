@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>愚人節運氣</title>
+    <style>
+        
+        @import url('https://fonts.googleapis.com/earlyaccess/cwtexyen.css');
+        
+        body {
+            background-image:url(BG.jpg);
+　          background-repeat:no-repeat;
+            background-color: black;
+        }
+        .header {
+            background-color: #b0c7d1;
+            justify-content: center;
+        }
+        .wrap {
+            margin:0 auto;
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+        }
+        .counterImage {
+            cursor: pointer;
+            height: 900px;
+            /* 在 CSS 中添加你的角色圖片 */
+            transition: transform 0.3s, filter 0.5s;
+        }
+        .counterImage:hover {
+            transform: scale(1.5);
+        }
+
+        .glow {
+            filter: darkness(300%);
+        }
+    </style>
+
+<script>
+        const audioFiles = [
+            'PA_S01.mp3',
+            'PA_S02.mp3',
+            'PA_S03.mp3',
+            'PA_S04.mp3',
+            'PA_S05.mp3',
+            'PA_S06.mp3',
+            'PA_S07.mp3',
+            'PA_S08.mp3',
+            'PA_S09.mp3',
+            'PA_S10.mp3',
+            'PA_S11.mp3',
+            'PA_S12.mp3',
+            'PA_S13.mp3',
+            'PA_S14.mp3',
+            'PA_S15.mp3'// 添加更多的音频文件路径
+        ];
+
+        const imageFiles = [
+            'PA_02.png',
+            'PA_03.png',
+            'PA_04.png',
+            'PA_05.png',
+            'PA_06.png',
+            'PA_07.png'// 添加更多的图片文件路径
+        ];
+
+        function playRandomSoundAndChangeImage() {
+            // 随机选择音频文件
+            const randomAudioIndex = Math.floor(Math.random() * audioFiles.length);
+            const audio = new Audio(audioFiles[randomAudioIndex]);
+            audio.play();
+
+            // 随机选择图片文件
+            const randomImageIndex = Math.floor(Math.random() * imageFiles.length);
+            document.getElementById('counterImage').src = imageFiles[randomImageIndex];
+        }
+
+        let count = 0;
+
+        function incrementCounter() {
+            count++;
+            document.getElementById('counter').innerText = count;
+            // 重置图像大小，实现点击后放大再缩小的效果
+            document.getElementById('counterImage').style.transform = 'scale(1)';
+            setTimeout(() => {
+                document.getElementById('counterImage').style.transform = 'scale(2)';
+            }, 10);
+        }
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <p font-size="24px"><b>愚人節快樂</b></p>
+            <p>您已經累積了<span id="counter">0</span>好運值</p>
+        </div>
+
+        <div id="counterArea" class="flex-container" onclick="incrementCounter()">
+
+           <img id="counterImage" class="counter-image" src="PA_01.png" onclick="playRandomSoundAndChangeImage()">
+        </div>
+
+    </div>
+  
+
+    
+</body>
+</html>
