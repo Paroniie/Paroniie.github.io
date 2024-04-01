@@ -3,6 +3,16 @@
 <head>
     <title>愚人節運氣</title>
     <style>
+        .wrap {
+            margin:0 auto;
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: stretch;
+        }
         .character {
             cursor: pointer;
             height: 900px;
@@ -13,28 +23,17 @@
         .glow {
             filter: brightness(150%);
         }
-
-        .flex-container {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: space-evenly;
-            align-items: stretch;
-        }
-
-        .item {
-            
-        }
     </style>
 </head>
 <body>
 
-    <p>測試</p>
-    <div class="flex-container">
-        <div class="item">
+    <div class="wrap">
+
+        <div class="flex-container">
             <img class="character" id="LAN" src="LAN_CU.png" onclick="interact('sound1.mp3', 'character1')">
             <img class="character" id="MOS" src="MOS_CU.png" onclick="interact('sound2.mp3', 'character2')">
         </div>
+
     </div>
 
     <script>
